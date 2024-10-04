@@ -1,16 +1,33 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <nav class="nav">
+		<div id="aboutme">
+			<img src="https://github.com/davidarizpe.png" alt="me" id="me">
+			<header class="header">
+				<h1 class="title">David Arizpe</h1>
+				<p>Junior Web Developer</p>
+			</header>
+		</div>
+		<p class="description">
+			I'm a passionate and creative web developer with multiple knowledges in front end and some in back end. I'm always looking to learn and improve my skills.
+		</p>
+	</nav>
+</Layout>
+
+<style>
+	#me {
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+
+	#aboutme {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 15px;
+	}
+</style>
