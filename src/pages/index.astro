@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import web from '/public/images/web.svg';
 import type { Project } from '../types/project';
 
 const res = await fetch('https://api.github.com/users/davidarizpe/repos');
@@ -63,8 +64,8 @@ const projects: Project[] = await res.json();
 					projects.slice(0, 3).map((project: Project) => (
 						<div class="project" id={`${project.id}`}>
 							<h3 class="header">{project.name}</h3>
-							<a href={project.html_url} target="_blank" rel="project">
-								<img src="/public/images/web.svg" alt={project.name} />
+							<a class="link" href={project.html_url} target="_blank" rel="project">
+								&#11016;
 							</a>
 						</div>
 					))					
@@ -135,6 +136,12 @@ const projects: Project[] = await res.json();
 				}
 			}
 		}
+	}
+
+	.link {
+		text-decoration: none;
+		color: white;
+		font-size: 1.5rem;
 	}
 
 	@media screen and (max-width: 768px) {
