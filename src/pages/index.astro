@@ -8,13 +8,49 @@ import Layout from '../layouts/Layout.astro';
 			<img src="https://github.com/davidarizpe.png" alt="me" id="me">
 			<header class="header">
 				<h1 class="title">David Arizpe</h1>
-				<p>Junior Web Developer</p>
+				<p id="myskill">Junior Web Developer</p>
 			</header>
 		</div>
 		<p class="description">
 			I'm a passionate and creative web developer with multiple knowledges in front end and some in back end. I'm always looking to learn and improve my skills.
 		</p>
 	</nav>
+
+	<main class="main">
+		<section class="section">
+			<h2 class="subtitle">Skills</h2>
+			<div id="skills">
+				<div class="forntend">
+					<h3 class="header">Frontend</h3>
+					<ul>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>JavaScript</li>
+						<li>TypeScript</li>
+						<li>React</li>
+						<li>Next.js</li>
+						<li>Astro</li>
+					</ul>
+				</div>
+				<div class="backend">
+					<h3 class="header">Backend</h3>
+					<ul>
+						<li>Node.js</li>
+						<li>Express</li>
+						<li>Prisma</li>
+					</ul>
+				</div>
+				<div class="tools">
+					<h3 class="header">Tools</h3>
+					<ul>
+						<li>Git</li>
+						<li>GitHub</li>
+						<li>VS Code</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
 
 <style>
@@ -29,5 +65,33 @@ import Layout from '../layouts/Layout.astro';
 		justify-content: center;
 		align-items: center;
 		gap: 15px;
+	}
+
+	#myskill {
+		margin: 0;
+		font-size: 1rem;
+	}
+
+	#skills {
+		display: flex;
+		gap: 15px;
+
+		div {
+			background-color: #555;
+			padding: 15px;
+			border-radius: 5px;	
+			box-sizing: border-box;
+		}
+	}
+
+	.header {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+
+	@media screen and (max-width: 768px) {
+		.header {
+			font-size: 1rem;
+		}
 	}
 </style>
