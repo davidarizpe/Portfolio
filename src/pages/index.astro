@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import type { Project } from '../types/project';
+
+const res = await fetch('https://api.github.com/users/davidarizpe/repos');
+const projects: Project[] = await res.json();
 ---
 
 <Layout>
@@ -50,6 +54,23 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 		</section>
+
+		<section>
+			<h2 class="subtitle">Projects</h2>
+
+			<div id="projects">
+				{
+					projects.slice(0, 3).map((project: Project) => (
+						<div class="project" id={`${project.id}`}>
+							<h3 class="header">{project.name}</h3>
+							<a href={project.html_url} target="_blank" rel="project">
+								<img src="/public/images/web.svg" alt={project.name} />
+							</a>
+						</div>
+					))					
+				}
+			</div>
+		</section>
 	</main>
 </Layout>
 
@@ -74,6 +95,7 @@ import Layout from '../layouts/Layout.astro';
 
 	#skills {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 15px;
 
 		div {
@@ -89,9 +111,39 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 1.25rem;
 	}
 
+	#projects {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		.project {
+			background-color: #555;
+			padding: 15px;
+			border-radius: 5px;	
+			box-sizing: border-box;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 20px;
+			width: 200px;
+
+			a {
+				transition: all 0.2s ease-in-out;
+
+				&:hover {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
 	@media screen and (max-width: 768px) {
 		.header {
 			font-size: 1rem;
+		}
+
+		#skills {
+			flex-direction: column;
 		}
 	}
 </style>
